@@ -77,32 +77,6 @@
       gap: 16px;
     }
 
-    .seal {
-      width: 50px;
-      height: 50px;
-      border: 1.5px solid var(--teal-deep);
-      border-radius: 50%;
-      position: relative;
-      flex-shrink: 0;
-      background: rgba(255,255,255,0.32);
-    }
-
-    .seal::before,
-    .seal::after {
-      content: "";
-      position: absolute;
-      inset: 7px;
-      border: 1px solid rgba(31,95,99,0.22);
-      border-radius: 50%;
-    }
-
-    .seal::after {
-      inset: 17px;
-      background: linear-gradient(135deg, var(--accent), var(--teal));
-      border: none;
-      opacity: 0.9;
-    }
-
     .brand-text {
       display: flex;
       flex-direction: column;
@@ -327,23 +301,11 @@
       color: var(--ink-soft);
     }
 
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .footer-right {
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--ink-soft);
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 0 6px rgba(31,95,99,0.08);
-      animation: pulse 2.2s ease-in-out infinite;
     }
 
     @keyframes fadeUp {
@@ -354,15 +316,6 @@
       to {
         opacity: 1;
         transform: translateY(0);
-      }
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.45;
       }
     }
 
@@ -439,7 +392,25 @@
   <div class="page">
     <header>
       <div class="brand">
-        <div class="seal"></div>
+        <!-- Two nested diamonds SVG logo — brand spec: #1a5f5e on #f7f3ed -->
+        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Outer diamond -->
+          <polygon
+            points="25,2 48,25 25,48 2,25"
+            fill="none"
+            stroke="#143b3d"
+            stroke-width="1.5"
+          />
+          <!-- Inner diamond -->
+          <polygon
+            points="25,11 39,25 25,39 11,25"
+            fill="none"
+            stroke="#143b3d"
+            stroke-width="1"
+            opacity="0.45"
+          />
+
+        </svg>
         <div class="brand-text">
           <div class="brand-name">Toposphora LLC</div>
           <div class="brand-subtitle">Expert Witness Practice Management</div>
@@ -451,7 +422,7 @@
     <main>
       <section class="hero">
         <div class="content">
-          <p class="eyebrow">Secure Operational Platform</p>
+          <p class="eyebrow">Expert Witness Practice Management</p>
 
           <h1>
             Administrative services with built-in
@@ -476,8 +447,8 @@
 
           <div class="contact-block">
             <div class="contact-label">Get in touch</div>
-            <a class="contact-link" href="/cdn-cgi/l/email-protection#bedadfd090d1c9dbd0cdfecad1ced1cdced6d1ccdf90ddd1d3">
-              <span class="__cf_email__" data-cfemail="bedadfd090d1c9dbd0cdfecad1ced1cdced6d1ccdf90ddd1d3">[email&#160;protected]</span>
+            <a class="contact-link" href="mailto:dan.owens@toposphora.com">
+              dan.owens@toposphora.com
             </a>
           </div>
         </div>
@@ -491,7 +462,7 @@
             <ul class="dossier-list">
               <li>Document-sensitive workflows</li>
               <li>Professional billing support</li>
-              <li>Administrative clarity without clutter</li>
+              <li>Structured case and engagement management</li>
             </ul>
           </div>
         </aside>
@@ -500,10 +471,7 @@
 
     <footer>
       <div class="footer-left">Toposphora LLC</div>
-      <div class="status">
-        <span class="status-dot"></span>
-        <span>Secure platform in development</span>
-      </div>
+      <div class="footer-right">Memphis, Tennessee</div>
     </footer>
   </div>
 </body>
