@@ -10,12 +10,8 @@ Local copy lives at `C:\Users\danow\Dev\toposphora-web`.
 - `main` is canonical. Never commit directly to `main`.
 - Every Claude session works on a dedicated `claude/<task>-<id>` branch.
 - At end of session: push branch and open a PR against `main`.
-- Do not merge the PR — the human reviews and merges.
-- Remind the user to run the following after merging each PR on their local machine:
-  ```
-  git checkout main
-  git pull origin main
-  ```
+- Claude may create and merge PRs as long as there are no merge conflicts. If conflicts exist, leave the PR open for Dan to resolve.
+- After merging, clean up: checkout `main`, pull, prune remote refs, delete local feature branch.
 
 ## Commit Style
 
