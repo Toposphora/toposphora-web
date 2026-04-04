@@ -40,3 +40,19 @@ Public-facing marketing/landing page for Toposphora LLC. Describes the expert wi
 
 - No API keys or tokens — this is a static site
 - No backend calls from this repo
+
+## Session End Checklist
+
+At the end of every session:
+- Compare the local `CLAUDE.md` against the version on `main`. If they differ,
+  merge meaningful changes into one version, commit it, and discard the other.
+  There must never be two competing versions of this file.
+- Ensure no feature branches remain locally or on the remote.
+- Ensure `main` is checked out and up to date.
+
+## Cross-Repo Context
+
+- All CTAs and "get started" links must point to `https://app.toposphora.com`
+  (the authenticated product app). Never point them to any other URL.
+- The product app is a separate repo (`toposphora-ui`) deployed independently.
+  Do not attempt to share code, assets, or build pipelines between the two repos.
