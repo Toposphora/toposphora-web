@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Toposphora — Expert Witness Practice Management</title>
+  <meta name="description" content="Toposphora provides expert witness practice management software — structured case intake, HIPAA-compliant document handling, invoicing, and payment coordination for expert witnesses and attorneys." />
+  <link rel="canonical" href="https://toposphora.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://toposphora.com" />
+  <meta property="og:title" content="Toposphora — Expert Witness Practice Management" />
+  <meta property="og:description" content="Toposphora provides expert witness practice management software — structured case intake, HIPAA-compliant document handling, invoicing, and payment coordination for expert witnesses and attorneys." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Toposphora — Expert Witness Practice Management" />
+  <meta name="twitter:description" content="Toposphora provides expert witness practice management software — structured case intake, HIPAA-compliant document handling, invoicing, and payment coordination for expert witnesses and attorneys." />
   <link
     href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet"
@@ -193,8 +202,9 @@
       box-shadow: 0 1px 0 rgba(255,255,255,0.65) inset;
     }
 
-    .service-item strong {
+    .service-item h3 {
       display: block;
+      font-family: "Manrope", sans-serif;
       font-size: 14px;
       font-weight: 700;
       color: var(--teal-deep);
@@ -246,6 +256,16 @@
     .contact-link:hover {
       background: var(--teal);
       transform: translateY(-1px);
+    }
+
+    .contact-link--outline {
+      background: transparent;
+      color: var(--teal-deep);
+      border: 1.5px solid var(--line-strong);
+    }
+
+    .contact-link--outline:hover {
+      background: rgba(18, 60, 61, 0.05);
     }
 
     .contact-note {
@@ -422,14 +442,14 @@
           <polygon
             points="25,2 48,25 25,48 2,25"
             fill="none"
-            stroke="#143b3d"
+            stroke="#123c3d"
             stroke-width="1.5"
           />
           <!-- Inner diamond -->
           <polygon
             points="25,11 39,25 25,39 11,25"
             fill="none"
-            stroke="#143b3d"
+            stroke="#123c3d"
             stroke-width="1"
             opacity="0.45"
           />
@@ -465,30 +485,33 @@
 
           <div class="service-grid">
             <div class="service-item">
-              <strong>Case Intake</strong>
+              <h3>Case Intake</h3>
               <span>Organized engagement setup and matter administration.</span>
             </div>
             <div class="service-item">
-              <strong>Document Handling</strong>
+              <h3>Document Handling</h3>
               <span>Secure, document-sensitive workflows built for litigation work.</span>
             </div>
             <div class="service-item">
-              <strong>Practice Operations</strong>
+              <h3>Practice Operations</h3>
               <span>Structured case management and internal workflow support.</span>
             </div>
             <div class="service-item">
-              <strong>Invoicing</strong>
+              <h3>Invoicing</h3>
               <span>Professional billing support aligned with expert witness practice.</span>
             </div>
             <div class="service-item">
-              <strong>Payment Processing</strong>
+              <h3>Payment Processing</h3>
               <span>Clear coordination from invoice issuance through payment.</span>
             </div>
           </div>
 
           <div class="contact-block">
-            <div class="contact-label">Get in touch</div>
-            <a class="contact-link" href="mailto:dan.owens@toposphora.com">
+            <div class="contact-label">Get started</div>
+            <a class="contact-link" href="https://app.toposphora.com">
+              Access Platform
+            </a>
+            <a class="contact-link contact-link--outline" href="mailto:dan.owens@toposphora.com">
               dan.owens@toposphora.com
             </a>
             <div class="contact-note">
@@ -497,7 +520,7 @@
           </div>
         </div>
 
-        <aside class="sidebar">
+        <aside class="sidebar" aria-label="Platform overview">
           <div class="dossier">
             <div class="dossier-title">Platform Focus</div>
             <div class="dossier-copy">
