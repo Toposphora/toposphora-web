@@ -36,6 +36,15 @@ Public-facing marketing/landing page for Toposphora LLC. Describes the expert wi
 - Sand accent: `#a48659`
 - Body font: Manrope; heading font: EB Garamond
 
+## Hosting
+
+- Served via Railway, project `toposphora-prod`, service `toposphora-web`
+- Deployed automatically from the `main` branch via the `Dockerfile`
+- nginx serves `index.html` on port **8080** (Railway's required port — do not change to 80)
+- Custom domain `toposphora.com` is configured in Railway's Networking settings
+- DNS is managed in Namecheap: apex `@` CNAME → `goo4wlj0.up.railway.app`
+- Railway provisions HTTPS automatically once DNS resolves
+
 ## Security
 
 - No API keys or tokens — this is a static site
