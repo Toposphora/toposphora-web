@@ -38,26 +38,15 @@ Public-facing marketing/landing page for Toposphora LLC. Describes the expert wi
 
 ## Hosting
 
-- Served via Railway, project `toposphora-prod`, service `toposphora-web`
-- Deployed automatically from the `main` branch via the `Dockerfile`
-- nginx serves `index.html` on port **8080** (Railway's required port — do not change to 80)
-- Custom domain `toposphora.com` is configured in Railway's Networking settings
-- DNS is managed in Namecheap: apex `@` CNAME → `goo4wlj0.up.railway.app`
-- Railway provisions HTTPS automatically once DNS resolves
+- Deployed via GitHub Actions to **AWS S3 + CloudFront** on every push to `main`.
+- S3 bucket: `toposphora-web-prod`. CloudFront distribution fronts `toposphora.com`. DNS is in Route 53 hosted zone `Z06219612T920IVQ6C6RN`.
+- Railway is decommissioned — do not assume `railway up` works for this repo.
+- The repo also ships a `Dockerfile` for legacy/local-container use. The deploy pipeline does not use it.
 
 ## Security
 
-- No API keys or tokens — this is a static site
-- No backend calls from this repo
-
-## Session End Checklist
-
-At the end of every session:
-- Compare the local `CLAUDE.md` against the version on `main`. If they differ,
-  merge meaningful changes into one version, commit it, and discard the other.
-  There must never be two competing versions of this file.
-- Ensure no feature branches remain locally or on the remote.
-- Ensure `main` is checked out and up to date.
+- No API keys or tokens — this is a static site.
+- No backend calls from this repo.
 
 ## Cross-Repo Context
 
