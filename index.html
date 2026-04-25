@@ -6,6 +6,8 @@
   <title>Toposphora — Expert Witness Practice Management</title>
   <meta name="description" content="Toposphora provides expert witness practice management software — structured case intake, HIPAA-compliant document handling, invoicing, and payment coordination for expert witnesses and attorneys." />
   <link rel="canonical" href="https://toposphora.com" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="theme-color" content="#f7f3ed" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://toposphora.com" />
   <meta property="og:title" content="Toposphora — Expert Witness Practice Management" />
@@ -13,10 +15,44 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Toposphora — Expert Witness Practice Management" />
   <meta name="twitter:description" content="Toposphora provides expert witness practice management software — structured case intake, HIPAA-compliant document handling, invoicing, and payment coordination for expert witnesses and attorneys." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://toposphora.com/#organization",
+        "name": "Toposphora LLC",
+        "url": "https://toposphora.com",
+        "logo": "https://toposphora.com/favicon.svg",
+        "description": "Expert witness practice management software for physicians, economists, and other expert witnesses engaged in civil litigation.",
+        "email": "dan.owens@toposphora.com"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://toposphora.com/#website",
+        "url": "https://toposphora.com",
+        "name": "Toposphora",
+        "publisher": { "@id": "https://toposphora.com/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Toposphora",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://app.toposphora.com",
+        "description": "Expert witness practice management with HIPAA-compliant document handling, structured case intake, invoicing, and payment coordination.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    ]
+  }
+  </script>
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -350,8 +386,7 @@
       animation: fadeUp 0.85s ease forwards 0.9s;
     }
 
-    .footer-left,
-    .footer-right {
+    .footer-left {
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -366,6 +401,28 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-delay: 0ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      header,
+      .eyebrow,
+      h1,
+      .description,
+      .service-grid,
+      .contact-block,
+      .sidebar,
+      footer {
+        opacity: 1;
+        transform: none;
       }
     }
 
