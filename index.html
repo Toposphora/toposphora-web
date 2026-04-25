@@ -4,19 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Toposphora — Expert Witness Practice Management</title>
-  <meta name="description" content="Toposphora provides expert witness practice management software — structured case intake, HIPAA-compliant document handling, invoicing, and payment coordination for expert witnesses and attorneys." />
+  <meta name="description" content="Toposphora is practice management built for expert witnesses — case intake, HIPAA-compliant document handling, billing, and payment coordination for physicians, economists, and the attorneys who retain them." />
   <link rel="canonical" href="https://toposphora.com" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="theme-color" content="#f7f3ed" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://toposphora.com" />
   <meta property="og:title" content="Toposphora — Expert Witness Practice Management" />
-  <meta property="og:description" content="Toposphora provides expert witness practice management software — structured case intake, HIPAA-compliant document handling, invoicing, and payment coordination for expert witnesses and attorneys." />
+  <meta property="og:description" content="Practice management built for expert witnesses — case intake, HIPAA-compliant document handling, billing, and payment coordination for physicians, economists, and the attorneys who retain them." />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Toposphora — Expert Witness Practice Management" />
-  <meta name="twitter:description" content="Toposphora provides expert witness practice management software — structured case intake, HIPAA-compliant document handling, invoicing, and payment coordination for expert witnesses and attorneys." />
+  <meta name="twitter:description" content="Practice management built for expert witnesses — case intake, HIPAA-compliant document handling, billing, and payment coordination for physicians, economists, and the attorneys who retain them." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://toposphora.com/#organization",
+        "name": "Toposphora LLC",
+        "url": "https://toposphora.com",
+        "logo": "https://toposphora.com/favicon.svg",
+        "description": "Practice management software built for expert witnesses engaged in civil litigation.",
+        "email": "dan.owens@toposphora.com"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://toposphora.com/#website",
+        "url": "https://toposphora.com",
+        "name": "Toposphora",
+        "publisher": { "@id": "https://toposphora.com/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Toposphora",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://app.toposphora.com",
+        "description": "Expert witness practice management with HIPAA-compliant document handling, structured case intake, invoicing, and payment coordination."
+      }
+    ]
+  }
+  </script>
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -350,8 +385,7 @@
       animation: fadeUp 0.85s ease forwards 0.9s;
     }
 
-    .footer-left,
-    .footer-right {
+    .footer-left {
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -366,6 +400,28 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-delay: 0ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      header,
+      .eyebrow,
+      h1,
+      .description,
+      .service-grid,
+      .contact-block,
+      .sidebar,
+      footer {
+        opacity: 1;
+        transform: none;
       }
     }
 
@@ -472,37 +528,33 @@
           <p class="eyebrow">Expert Witness Practice Management</p>
 
           <h1>
-            Administrative support for expert witnesses with
-            <em>HIPAA-compliant</em> document handling and disciplined case operations.
+            Practice management for <em>expert witnesses</em>, built around the way litigation work actually moves.
           </h1>
 
           <p class="description">
-            Toposphora helps physicians, economists, and other expert witnesses
-            manage litigation engagements with greater structure across intake,
-            documents, workflow, invoicing, and payment coordination, without
-            adding administrative clutter to the work itself.
+            Toposphora handles the administrative weight of expert witness engagements — intake, HIPAA-compliant document handling, billing, and payment follow-through — so physicians, economists, and other experts can stay focused on the analysis and testimony that move a case, instead of chasing files and invoices.
           </p>
 
           <div class="service-grid">
             <div class="service-item">
               <h3>Case Intake</h3>
-              <span>Organized engagement setup and matter administration.</span>
+              <span>Engagement setup, conflict checks, and matter records organized from the first call.</span>
             </div>
             <div class="service-item">
               <h3>Document Handling</h3>
-              <span>Secure, document-sensitive workflows built for litigation work.</span>
+              <span>HIPAA-compliant storage for medical records, exhibits, and expert files.</span>
             </div>
             <div class="service-item">
               <h3>Practice Operations</h3>
-              <span>Structured case management and internal workflow support.</span>
+              <span>Deadlines, deliverables, and case status visible across every active matter.</span>
             </div>
             <div class="service-item">
               <h3>Invoicing</h3>
-              <span>Professional billing support aligned with expert witness practice.</span>
+              <span>Time capture and invoices formatted for the billing conventions law firms expect.</span>
             </div>
             <div class="service-item">
               <h3>Payment Processing</h3>
-              <span>Clear coordination from invoice issuance through payment.</span>
+              <span>Retainers, draws, and payment follow-through without chasing checks.</span>
             </div>
           </div>
 
@@ -515,27 +567,26 @@
               dan.owens@toposphora.com
             </a>
             <div class="contact-note">
-              For attorneys and expert witnesses exploring operational support.
+              For attorneys and expert witnesses evaluating operational support.
             </div>
           </div>
         </div>
 
-        <aside class="sidebar" aria-label="Platform overview">
+        <aside class="sidebar" aria-label="Why Toposphora">
           <div class="dossier">
-            <div class="dossier-title">Platform Focus</div>
+            <div class="dossier-title">Why Toposphora</div>
             <div class="dossier-copy">
-              Built around the practical demands of expert witness engagements.
+              Purpose-built for expert witness work — not a generic practice tool with a new label.
             </div>
 
             <ul class="dossier-list">
-              <li>Document-sensitive workflows for litigation matters</li>
-              <li>Professional billing and payment coordination</li>
-              <li>Structured case administration without bookkeeping bloat</li>
+              <li>HIPAA-compliant document handling for experts who routinely receive protected health information.</li>
+              <li>Dual-sided by design — experts manage the engagement; retaining counsel sees what they need.</li>
+              <li>Billing and payment workflows aligned with how law firms actually pay outside experts.</li>
             </ul>
 
             <div class="dossier-foot">
-              Designed for experts who need reliable operational support and for
-              firms that value organized, responsive administrative handling.
+              For experts who want reliable operational support, and for firms that value organized, responsive administrative handling.
             </div>
           </div>
         </aside>
