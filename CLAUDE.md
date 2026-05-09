@@ -39,7 +39,7 @@ Public-facing marketing/landing page for Toposphora LLC. Describes the expert wi
 ## Hosting
 
 - Deployed via GitHub Actions to **AWS S3 + CloudFront** on every push to `main`.
-- S3 bucket: `toposphora-web-prod`. CloudFront distribution fronts `toposphora.com`. DNS is in Route 53 hosted zone `Z06219612T920IVQ6C6RN`.
+- S3 bucket: `toposphora-web-prod`. CloudFront distribution `EZMRLWLN9USW7` fronts `toposphora.com`. DNS for `toposphora.com` is hosted in **AWS Route 53** (zone `Z06219612T920IVQ6C6RN`); Namecheap is the registrar and the nameservers are delegated to AWS (`ns-*.awsdns-*`).
 - Railway is decommissioned — do not assume `railway up` works for this repo.
 - The repo also ships a `Dockerfile` for legacy/local-container use. The deploy pipeline does not use it.
 
