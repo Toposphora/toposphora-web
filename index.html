@@ -258,6 +258,57 @@
       color: var(--ink-soft);
     }
 
+    .pricing-card {
+      max-width: 780px;
+      padding: 18px 22px 16px;
+      margin-bottom: 26px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.58);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.65) inset;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 22px;
+      align-items: baseline;
+      opacity: 0;
+      animation: fadeUp 0.85s ease forwards 0.6s;
+    }
+
+    .pricing-amount {
+      font-family: "EB Garamond", serif;
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1;
+      color: var(--teal-deep);
+      letter-spacing: -0.01em;
+    }
+
+    .pricing-amount-suffix {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      margin-left: 4px;
+    }
+
+    .pricing-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .pricing-detail {
+      grid-column: 1 / -1;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin-top: 6px;
+    }
+
     .contact-block {
       display: flex;
       align-items: center;
@@ -546,8 +597,12 @@
               <span>Engagement setup, conflict checks, and matter records organized from the first call.</span>
             </div>
             <div class="service-item">
+              <h3>Engagement Agreements</h3>
+              <span>Service Agreement e-signature and retainer invoicing built into case activation.</span>
+            </div>
+            <div class="service-item">
               <h3>Document Handling</h3>
-              <span>HIPAA-compliant storage for medical records, exhibits, and expert files.</span>
+              <span>HIPAA-compliant storage with read-only share links for retaining counsel.</span>
             </div>
             <div class="service-item">
               <h3>Practice Operations</h3>
@@ -561,6 +616,12 @@
               <h3>Payment Processing</h3>
               <span>Retainers, draws, and payment follow-through without chasing checks.</span>
             </div>
+          </div>
+
+          <div class="pricing-card" aria-label="Pricing">
+            <div class="pricing-amount">$34<span class="pricing-amount-suffix">/ MO</span></div>
+            <div class="pricing-label">Base Platform</div>
+            <p class="pricing-detail">Per expert witness. Add Time Tracking with Stripe Connect to invoice law firms directly. 7-day free trial — no card required to start.</p>
           </div>
 
           <div class="contact-block">
@@ -586,7 +647,7 @@
 
             <ul class="dossier-list">
               <li>HIPAA-compliant document handling for experts who routinely receive protected health information.</li>
-              <li>Dual-sided by design — experts manage the engagement; retaining counsel sees what they need.</li>
+              <li>Dual-sided by design — experts manage the engagement; retaining counsel and paralegals see what they need through read-only share links.</li>
               <li>Billing and payment workflows aligned with how law firms actually pay outside experts.</li>
             </ul>
 
