@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Toposphora — Expert Witness Practice Management</title>
-  <meta name="description" content="Toposphora is practice management built for expert witnesses — case intake, HIPAA-compliant document handling, billing, and payment coordination for physicians, economists, and the attorneys who retain them." />
+  <meta name="description" content="Administrative infrastructure for expert witness engagements. Toposphora coordinates intake, document handling, scheduling, and billing across expert witness matters." />
   <link rel="canonical" href="https://toposphora.com" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
@@ -12,13 +12,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://toposphora.com" />
   <meta property="og:title" content="Toposphora — Expert Witness Practice Management" />
-  <meta property="og:description" content="Practice management built for expert witnesses — case intake, HIPAA-compliant document handling, billing, and payment coordination for physicians, economists, and the attorneys who retain them." />
+  <meta property="og:description" content="Administrative infrastructure for expert witness engagements. Toposphora coordinates intake, document handling, scheduling, and billing across expert witness matters." />
   <meta property="og:image" content="https://toposphora.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Toposphora — Expert Witness Practice Management" />
-  <meta name="twitter:description" content="Practice management built for expert witnesses — case intake, HIPAA-compliant document handling, billing, and payment coordination for physicians, economists, and the attorneys who retain them." />
+  <meta name="twitter:description" content="Administrative infrastructure for expert witness engagements. Toposphora coordinates intake, document handling, scheduling, and billing across expert witness matters." />
   <meta name="twitter:image" content="https://toposphora.com/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -163,8 +163,8 @@
 
     main {
       display: grid;
-      align-items: center;
-      padding: 58px 0 64px;
+      align-items: start;
+      padding: 58px 0 0;
     }
 
     .hero {
@@ -172,27 +172,6 @@
       grid-template-columns: minmax(0, 1.25fr) 340px;
       gap: 60px;
       align-items: start;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--teal);
-      opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.18s;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 34px;
-      height: 1px;
-      background: var(--sand);
     }
 
     h1 {
@@ -203,15 +182,21 @@
       letter-spacing: -0.025em;
       color: var(--teal-deep);
       max-width: 900px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       text-wrap: balance;
       opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.3s;
+      animation: fadeUp 0.85s ease forwards 0.16s;
     }
 
-    h1 em {
-      font-style: italic;
-      color: var(--teal);
+    .lede {
+      max-width: 720px;
+      font-family: "EB Garamond", serif;
+      font-size: clamp(20px, 2.1vw, 24px);
+      line-height: 1.45;
+      color: var(--teal-deep);
+      margin-bottom: 18px;
+      opacity: 0;
+      animation: fadeUp 0.85s ease forwards 0.24s;
     }
 
     .description {
@@ -219,9 +204,25 @@
       font-size: 17px;
       line-height: 1.75;
       color: var(--ink-soft);
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.42s;
+      animation: fadeUp 0.85s ease forwards 0.24s;
+    }
+
+    .credibility {
+      max-width: 720px;
+      margin-top: 16px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      opacity: 0;
+      animation: fadeUp 0.85s ease forwards 0.32s;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 28px 0 20px;
     }
 
     .service-grid {
@@ -229,9 +230,9 @@
       grid-template-columns: repeat(2, minmax(220px, 1fr));
       gap: 14px;
       max-width: 780px;
-      margin-bottom: 34px;
+      margin-bottom: 0;
       opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.54s;
+      animation: fadeUp 0.85s ease forwards 0.40s;
     }
 
     .service-item {
@@ -267,7 +268,7 @@
       border-top: 1px solid var(--line);
       max-width: 720px;
       opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.66s;
+      animation: fadeUp 0.85s ease forwards 0.32s;
     }
 
     .contact-label {
@@ -315,7 +316,32 @@
 
     .sidebar {
       opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.78s;
+      animation: fadeUp 0.85s ease forwards 0.48s;
+    }
+
+    .closing {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 0 64px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeUp 0.85s ease forwards 0.56s;
+    }
+
+    .closing-statement {
+      font-family: "EB Garamond", serif;
+      font-size: clamp(24px, 2.6vw, 30px);
+      line-height: 1.3;
+      color: var(--teal-deep);
+      margin-bottom: 28px;
+      text-wrap: balance;
+    }
+
+    .closing-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
     }
 
     .dossier {
@@ -387,7 +413,7 @@
       padding-top: 24px;
       border-top: 1px solid var(--line);
       opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.9s;
+      animation: fadeUp 0.85s ease forwards 0.64s;
     }
 
     .footer-left {
@@ -418,12 +444,14 @@
         transition-duration: 0.001ms !important;
       }
       header,
-      .eyebrow,
       h1,
+      .lede,
       .description,
-      .service-grid,
       .contact-block,
+      .credibility,
+      .service-grid,
       .sidebar,
+      .closing,
       footer {
         opacity: 1;
         transform: none;
@@ -518,87 +546,106 @@
 
         <div class="brand-text">
           <div class="brand-name">Toposphora LLC</div>
-          <div class="brand-subtitle">Expert Witness Practice Management</div>
         </div>
       </div>
 
       <div class="header-note">
-        Administrative infrastructure for civil litigation experts
+        Administrative infrastructure for expert witness engagements
       </div>
     </header>
 
     <main>
       <section class="hero">
         <div class="content">
-          <p class="eyebrow">Expert Witness Practice Management</p>
-
           <h1>
-            Practice management for <em>expert witnesses</em>, built around the way litigation work actually moves.
+            Administrative infrastructure for expert witness engagements.
           </h1>
 
-          <p class="description">
-            Toposphora handles the administrative weight of expert witness engagements — intake, HIPAA-compliant document handling, billing, and payment follow-through — so physicians, economists, and other experts can stay focused on the analysis and testimony that move a case, instead of chasing files and invoices.
+          <p class="lede">
+            Toposphora organizes intake, document handling, scheduling, and billing across expert witness matters.
           </p>
 
-          <div class="service-grid">
-            <div class="service-item">
-              <h3>Case Intake</h3>
-              <span>Engagement setup, conflict checks, and matter records organized from the first call.</span>
-            </div>
-            <div class="service-item">
-              <h3>Engagement Agreements</h3>
-              <span>Service Agreement e-signature and retainer invoicing built into case activation.</span>
-            </div>
-            <div class="service-item">
-              <h3>Document Handling</h3>
-              <span>HIPAA-compliant storage with read-only share links for retaining counsel.</span>
-            </div>
-            <div class="service-item">
-              <h3>Practice Operations</h3>
-              <span>Deadlines, deliverables, and case status visible across every active matter.</span>
-            </div>
-            <div class="service-item">
-              <h3>Invoicing</h3>
-              <span>Time capture and invoices formatted for the billing conventions law firms expect.</span>
-            </div>
-            <div class="service-item">
-              <h3>Payment Processing</h3>
-              <span>Retainers, draws, and payment follow-through without chasing checks.</span>
-            </div>
-          </div>
+          <p class="description">
+            Toposphora structures engagement setup, document handling, scheduling visibility, and billing workflows so experts stay focused on testimony and attorneys remain informed.
+          </p>
 
           <div class="contact-block">
             <div class="contact-label">Get started</div>
             <a class="contact-link" href="https://app.toposphora.com/start-trial">
-              Test Drive
+              Request Access
             </a>
             <a class="contact-link contact-link--outline" href="https://app.toposphora.com">
               Sign In
             </a>
-            <a class="contact-link contact-link--outline" href="mailto:dan.owens@toposphora.com">
-              dan.owens@toposphora.com
-            </a>
+          </div>
+
+          <p class="credibility">
+            For physicians, engineers, economists, and other expert witnesses engaged in civil litigation.
+          </p>
+
+          <hr class="section-divider" />
+
+          <div class="service-grid">
+            <div class="service-item">
+              <h3>Case Intake</h3>
+              <span>Structured engagement setup, conflict review, and matter creation.</span>
+            </div>
+            <div class="service-item">
+              <h3>Engagement Agreements</h3>
+              <span>Service agreements, retainers, and execution tracking within each matter.</span>
+            </div>
+            <div class="service-item">
+              <h3>Document Handling</h3>
+              <span>HIPAA-capable storage and controlled document sharing for case materials.</span>
+            </div>
+            <div class="service-item">
+              <h3>Practice Operations</h3>
+              <span>Deadlines, deliverables, and scheduling visibility across active matters.</span>
+            </div>
+            <div class="service-item">
+              <h3>Invoicing</h3>
+              <span>Time capture and invoice generation structured for litigation billing.</span>
+            </div>
+            <div class="service-item">
+              <h3>Payment Processing</h3>
+              <span>Retainer tracking, drawdowns, and payment recording.</span>
+            </div>
           </div>
         </div>
 
-        <aside class="sidebar" aria-label="Why Toposphora">
+        <aside class="sidebar" aria-label="Built for expert witness work">
           <div class="dossier">
-            <div class="dossier-title">Why Toposphora</div>
+            <div class="dossier-title">Built for expert witness work</div>
             <div class="dossier-copy">
-              Purpose-built for expert witness work — not a generic practice tool with a new label.
+              Toposphora centralizes the administrative components of expert witness engagements.
             </div>
 
             <ul class="dossier-list">
-              <li>HIPAA-compliant document handling for experts who routinely receive protected health information.</li>
-              <li>Dual-sided by design — experts manage the engagement; retaining counsel and paralegals see what they need through read-only share links.</li>
-              <li>Billing and payment workflows aligned with how law firms actually pay outside experts.</li>
+              <li>Case intake and matter setup</li>
+              <li>Document storage and controlled sharing</li>
+              <li>Scheduling visibility across participants</li>
+              <li>Billing and payment tracking</li>
             </ul>
 
             <div class="dossier-foot">
-              For experts who want reliable operational support, and for firms that value organized, responsive administrative handling.
+              All activity is organized by matter and remains accessible throughout the engagement lifecycle.
             </div>
           </div>
         </aside>
+      </section>
+
+      <section class="closing" aria-label="Summary">
+        <p class="closing-statement">
+          Toposphora provides a single system for managing the administrative side of expert witness engagements from initial contact through final payment.
+        </p>
+        <div class="closing-actions">
+          <a class="contact-link" href="https://app.toposphora.com/start-trial">
+            Request Access
+          </a>
+          <a class="contact-link contact-link--outline" href="https://app.toposphora.com">
+            Sign In
+          </a>
+        </div>
       </section>
     </main>
 
