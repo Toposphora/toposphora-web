@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://toposphora.com" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-  <meta name="theme-color" content="#f7f3ed" />
+  <meta name="theme-color" content="#F5F7FA" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://toposphora.com" />
   <meta property="og:title" content="Toposphora — Expert Witness Practice Management" />
@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap"
     rel="stylesheet"
   />
   <script type="application/ld+json">
@@ -64,107 +64,153 @@
       padding: 0;
     }
 
+    /* Inlined subset of src/styles/tokens.css — that file is canonical; keep in sync. */
     :root {
-      --bg: #f7f3ed;
-      --surface: rgba(255, 255, 255, 0.76);
-      --surface-strong: #ffffff;
-      --ink: #18282a;
-      --ink-soft: #536669;
-      --teal: #1a5f5e;
-      --teal-deep: #123c3d;
-      --sand: #a48659;
-      --line: rgba(18, 60, 61, 0.12);
-      --line-strong: rgba(18, 60, 61, 0.2);
-      --shadow: 0 20px 60px rgba(18, 60, 61, 0.08);
-      --radius: 24px;
+      /* Color */
+      --color-navy:        #1A3A5C;
+      --color-navy-dark:   #0D1B2A;
+      --color-navy-light:  #2A547E;
+      --color-amber:       #C4922A;
+      --color-bg:          #F5F7FA;
+      --color-surface:     #FFFFFF;
+      --color-border:      #E0E6ED;
+      --color-mid:         #4A6078;
+      --color-subtle:      #7A93AD;
+      --color-focus-ring:  #2B7FD4;
+
+      /* Typography */
+      --font-sans: 'Sora', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      --text-hero:    2.25rem;
+      --text-h1:      1.6rem;
+      --text-h2:      1.2rem;
+      --text-h3:      1rem;
+      --text-body:    0.875rem;
+      --text-small:   0.8rem;
+      --text-label:   0.68rem;
+      --weight-light:    300;
+      --weight-regular:  400;
+      --weight-medium:   600;
+      --weight-bold:     700;
+      --leading-tight:   1.15;
+      --leading-snug:    1.3;
+      --leading-normal:  1.65;
+      --tracking-tight:  -0.01em;
+      --tracking-wide:    0.04em;
+      --tracking-wider:   0.1em;
+
+      /* Spacing — 8px base scale */
+      --space-1:   4px;
+      --space-2:   8px;
+      --space-3:   12px;
+      --space-4:   16px;
+      --space-5:   20px;
+      --space-6:   24px;
+      --space-8:   32px;
+      --space-10:  40px;
+      --space-12:  48px;
+      --space-16:  64px;
+      --space-20:  80px;
+
+      /* Shape, borders, shadow, motion */
+      --radius:     0px;
+      --border:     1px solid var(--color-border);
+      --shadow-sm:  0 1px 3px rgba(13, 27, 42, 0.08);
+      --transition-normal: 200ms ease;
+
+      /* Buttons */
+      --btn-font-size:      0.75rem;
+      --btn-font-weight:    var(--weight-medium);
+      --btn-letter-spacing: var(--tracking-wide);
+      --btn-pad-x:          16px;
+      --btn-pad-y:          7px;
+      --btn-radius:         var(--radius);
+      --btn-primary-bg:       var(--color-navy);
+      --btn-primary-color:    #FFFFFF;
+      --btn-primary-hover-bg: var(--color-navy-light);
+
+      /* Topbar */
+      --topbar-height:      56px;
+      --topbar-pad-x:       24px;
+      --topbar-bg:          var(--color-surface);
+      --topbar-border:      var(--border);
+      --topbar-logo-size:   0.95rem;
+      --topbar-logo-weight: var(--weight-bold);
+      --topbar-logo-color:  var(--color-navy);
+      --topbar-link-size:   0.72rem;
+      --topbar-link-color:  var(--color-mid);
     }
 
     html, body {
       min-height: 100%;
-      background:
-        radial-gradient(circle at 12% 18%, rgba(26,95,94,0.06), transparent 24%),
-        radial-gradient(circle at 88% 10%, rgba(164,134,89,0.08), transparent 20%),
-        linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0) 180px),
-        var(--bg);
-      color: var(--ink);
-      font-family: "Manrope", sans-serif;
+      background: var(--color-bg);
+      color: var(--color-navy-dark);
+      font-family: var(--font-sans);
       overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 28px;
-      border: 1px solid rgba(18, 60, 61, 0.07);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .page {
-      position: relative;
-      z-index: 1;
-      max-width: 1240px;
-      min-height: 100vh;
-      margin: 0 auto;
-      padding: 38px 52px 36px;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
+    :focus-visible {
+      outline: 2px solid var(--color-focus-ring);
+      outline-offset: 2px;
     }
 
     header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 24px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--line);
+      background: var(--topbar-bg);
+      border-bottom: var(--topbar-border);
       opacity: 0;
       animation: fadeUp 0.85s ease forwards 0.08s;
+    }
+
+    .topbar-inner {
+      max-width: 1240px;
+      min-height: var(--topbar-height);
+      margin: 0 auto;
+      padding: var(--space-2) var(--topbar-pad-x);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      gap: var(--space-3);
     }
 
     .brand-name {
-      font-family: "EB Garamond", serif;
-      font-size: 34px;
-      font-weight: 600;
+      font-size: var(--topbar-logo-size);
+      font-weight: var(--topbar-logo-weight);
       line-height: 1;
-      letter-spacing: 0.04em;
+      letter-spacing: var(--tracking-wide);
       text-transform: uppercase;
-      color: var(--teal-deep);
-    }
-
-    .brand-subtitle {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
+      color: var(--topbar-logo-color);
     }
 
     .header-note {
-      max-width: 320px;
-      font-size: 11px;
-      line-height: 1.55;
-      letter-spacing: 0.14em;
+      max-width: 360px;
+      font-family: var(--font-mono);
+      font-size: var(--topbar-link-size);
+      line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-wider);
       text-transform: uppercase;
-      color: var(--ink-soft);
+      color: var(--topbar-link-color);
       text-align: right;
+    }
+
+    .page {
+      max-width: 1240px;
+      min-height: calc(100vh - var(--topbar-height));
+      margin: 0 auto;
+      padding: 0 var(--space-12) var(--space-8);
+      display: grid;
+      grid-template-rows: 1fr auto;
     }
 
     main {
       display: grid;
       align-items: start;
-      padding: 58px 0 0;
+      padding: var(--space-12) 0 0;
     }
 
     .hero {
@@ -175,14 +221,13 @@
     }
 
     h1 {
-      font-family: "EB Garamond", serif;
-      font-size: clamp(46px, 5.3vw, 74px);
-      font-weight: 500;
-      line-height: 0.96;
-      letter-spacing: -0.025em;
-      color: var(--teal-deep);
+      font-size: clamp(var(--text-hero), 4vw, 3rem);
+      font-weight: var(--weight-medium);
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      color: var(--color-navy-dark);
       max-width: 900px;
-      margin-bottom: 22px;
+      margin-bottom: var(--space-6);
       text-wrap: balance;
       opacity: 0;
       animation: fadeUp 0.85s ease forwards 0.16s;
@@ -190,45 +235,45 @@
 
     .lede {
       max-width: 720px;
-      font-family: "EB Garamond", serif;
-      font-size: clamp(20px, 2.1vw, 24px);
-      line-height: 1.45;
-      color: var(--teal-deep);
-      margin-bottom: 18px;
+      font-size: var(--text-h1);
+      font-weight: var(--weight-light);
+      line-height: var(--leading-snug);
+      color: var(--color-navy-dark);
+      margin-bottom: var(--space-4);
       opacity: 0;
       animation: fadeUp 0.85s ease forwards 0.24s;
     }
 
     .description {
       max-width: 710px;
-      font-size: 17px;
-      line-height: 1.75;
-      color: var(--ink-soft);
-      margin-bottom: 28px;
+      font-size: var(--text-body);
+      line-height: var(--leading-normal);
+      color: var(--color-mid);
+      margin-bottom: var(--space-6);
       opacity: 0;
       animation: fadeUp 0.85s ease forwards 0.24s;
     }
 
     .credibility {
       max-width: 720px;
-      margin-top: 16px;
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--ink-soft);
+      margin-top: var(--space-4);
+      font-size: var(--text-small);
+      line-height: var(--leading-normal);
+      color: var(--color-mid);
       opacity: 0;
       animation: fadeUp 0.85s ease forwards 0.32s;
     }
 
     .section-divider {
       border: none;
-      border-top: 1px solid var(--line);
-      margin: 28px 0 20px;
+      border-top: var(--border);
+      margin: var(--space-6) 0 var(--space-5);
     }
 
     .service-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(220px, 1fr));
-      gap: 14px;
+      gap: var(--space-3);
       max-width: 780px;
       margin-bottom: 0;
       opacity: 0;
@@ -236,82 +281,77 @@
     }
 
     .service-item {
-      padding: 18px 18px 16px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.58);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.65) inset;
+      padding: var(--space-4);
+      border: var(--border);
+      border-radius: var(--radius);
+      background: var(--color-surface);
     }
 
-    .service-item h3 {
+    .service-item h2 {
       display: block;
-      font-family: "Manrope", sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--teal-deep);
-      margin-bottom: 4px;
+      font-size: var(--text-h3);
+      font-weight: var(--weight-medium);
+      color: var(--color-navy-dark);
+      margin-bottom: var(--space-1);
     }
 
     .service-item span {
       display: block;
-      font-size: 13px;
-      line-height: 1.55;
-      color: var(--ink-soft);
+      font-size: var(--text-small);
+      line-height: var(--leading-normal);
+      color: var(--color-mid);
     }
 
     .contact-block {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 14px 18px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
+      gap: var(--space-3) var(--space-4);
+      padding-top: var(--space-5);
+      border-top: var(--border);
       max-width: 720px;
       opacity: 0;
       animation: fadeUp 0.85s ease forwards 0.32s;
     }
 
     .contact-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
+      font-family: var(--font-mono);
+      font-size: var(--text-label);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--tracking-wider);
       text-transform: uppercase;
-      color: var(--ink-soft);
+      color: var(--color-mid);
     }
 
     .contact-link {
       display: inline-flex;
       align-items: center;
       min-height: 36px;
-      padding: 0 14px;
-      border-radius: 999px;
-      background: var(--teal-deep);
-      color: #f8f6f1;
+      padding: var(--btn-pad-y) var(--btn-pad-x);
+      border-radius: var(--btn-radius);
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-color);
       text-decoration: none;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      transition: transform 0.2s ease, background 0.2s ease;
+      font-size: var(--btn-font-size);
+      font-weight: var(--btn-font-weight);
+      letter-spacing: var(--btn-letter-spacing);
+      transition: background var(--transition-normal), color var(--transition-normal);
     }
 
     .contact-link:hover {
-      background: var(--teal);
-      transform: translateY(-1px);
+      background: var(--btn-primary-hover-bg);
     }
 
     .contact-link--outline {
       background: transparent;
-      color: var(--teal-deep);
-      border: 1.5px solid var(--line-strong);
+      color: var(--color-navy);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .contact-link--outline:hover {
-      background: rgba(18, 60, 61, 0.05);
-    }
-
-    .contact-note {
-      font-size: 13px;
-      color: var(--ink-soft);
+      background: transparent;
+      color: var(--color-navy-light);
     }
 
     .sidebar {
@@ -321,59 +361,59 @@
 
     .closing {
       max-width: 720px;
-      padding: 72px 0 64px;
+      padding: var(--space-20) 0 var(--space-16);
       opacity: 0;
       animation: fadeUp 0.85s ease forwards 0.56s;
     }
 
     .closing-statement {
-      font-family: "EB Garamond", serif;
-      font-size: clamp(24px, 2.6vw, 30px);
-      line-height: 1.3;
-      color: var(--teal-deep);
-      margin-bottom: 28px;
+      font-size: var(--text-h1);
+      font-weight: var(--weight-regular);
+      line-height: var(--leading-snug);
+      color: var(--color-navy-dark);
+      margin-bottom: var(--space-6);
       text-wrap: balance;
     }
 
     .dossier {
-      background: var(--surface);
-      border: 1px solid var(--line);
+      background: var(--color-surface);
+      border: var(--border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 26px 24px 22px;
-      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      padding: var(--space-6);
     }
 
     .dossier-title {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
+      font-family: var(--font-mono);
+      font-size: var(--text-label);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--tracking-wider);
       text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 18px;
+      color: var(--color-navy);
+      margin-bottom: var(--space-4);
     }
 
     .dossier-copy {
-      font-family: "EB Garamond", serif;
-      font-size: 30px;
-      line-height: 1.06;
-      color: var(--teal-deep);
-      margin-bottom: 20px;
+      font-size: var(--text-h2);
+      font-weight: var(--weight-medium);
+      line-height: var(--leading-snug);
+      color: var(--color-navy-dark);
+      margin-bottom: var(--space-5);
     }
 
     .dossier-list {
       list-style: none;
       display: grid;
-      gap: 14px;
-      margin-bottom: 22px;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
     }
 
     .dossier-list li {
-      padding-left: 14px;
+      padding-left: var(--space-4);
       position: relative;
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--ink-soft);
+      font-size: var(--text-small);
+      line-height: var(--leading-normal);
+      color: var(--color-mid);
     }
 
     .dossier-list li::before {
@@ -383,35 +423,36 @@
       top: 0.78em;
       width: 6px;
       height: 6px;
-      background: var(--sand);
+      background: var(--color-amber);
       border-radius: 50%;
       transform: translateY(-50%);
     }
 
     .dossier-foot {
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      font-size: 12px;
-      line-height: 1.65;
-      color: var(--ink-soft);
+      padding-top: var(--space-4);
+      border-top: var(--border);
+      font-size: var(--text-small);
+      line-height: var(--leading-normal);
+      color: var(--color-mid);
     }
 
     footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
+      gap: var(--space-5);
+      padding-top: var(--space-6);
+      border-top: var(--border);
       opacity: 0;
       animation: fadeUp 0.85s ease forwards 0.64s;
     }
 
     .footer-left {
-      font-size: 11px;
-      letter-spacing: 0.14em;
+      font-family: var(--font-mono);
+      font-size: var(--text-label);
+      letter-spacing: var(--tracking-wider);
       text-transform: uppercase;
-      color: var(--ink-soft);
+      color: var(--color-mid);
     }
 
     @keyframes fadeUp {
@@ -452,49 +493,33 @@
     @media (max-width: 980px) {
       .hero {
         grid-template-columns: 1fr;
-        gap: 36px;
+        gap: var(--space-8);
       }
 
       .sidebar {
         max-width: 460px;
       }
+    }
+
+    @media (max-width: 700px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+        padding-top: var(--space-3);
+        padding-bottom: var(--space-3);
+      }
 
       .header-note {
         text-align: left;
       }
-    }
-
-    @media (max-width: 700px) {
-      body::before {
-        display: none;
-      }
 
       .page {
-        padding: 26px 22px 28px;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-      }
-
-      .brand-name {
-        font-size: 28px;
+        padding: 0 var(--space-5) var(--space-6);
       }
 
       main {
-        padding: 40px 0 48px;
-      }
-
-      h1 {
-        font-size: clamp(36px, 12vw, 54px);
-        line-height: 1;
-      }
-
-      .description {
-        font-size: 15px;
-        line-height: 1.68;
+        padding: var(--space-10) 0 var(--space-12);
       }
 
       .service-grid {
@@ -513,23 +538,23 @@
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
+  <header>
+    <div class="topbar-inner">
       <div class="brand">
-        <!-- Two nested diamonds SVG logo — brand spec: #1a5f5e on #f7f3ed -->
-        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Two nested diamonds SVG logo — brand spec: #1A3A5C on #F5F7FA -->
+        <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <!-- Outer diamond -->
           <polygon
             points="25,2 48,25 25,48 2,25"
             fill="none"
-            stroke="#123c3d"
+            stroke="#1A3A5C"
             stroke-width="1.5"
           />
           <!-- Inner diamond -->
           <polygon
             points="25,11 39,25 25,39 11,25"
             fill="none"
-            stroke="#123c3d"
+            stroke="#1A3A5C"
             stroke-width="1"
             opacity="0.45"
           />
@@ -543,8 +568,10 @@
       <div class="header-note">
         Administrative management of expert witness engagements
       </div>
-    </header>
+    </div>
+  </header>
 
+  <div class="page">
     <main>
       <section class="hero">
         <div class="content">
@@ -578,27 +605,27 @@
 
           <div class="service-grid">
             <div class="service-item">
-              <h3>Case Intake</h3>
+              <h2>Case Intake</h2>
               <span>Structured engagement setup, conflict review, and matter creation.</span>
             </div>
             <div class="service-item">
-              <h3>Engagement Agreements</h3>
+              <h2>Engagement Agreements</h2>
               <span>Service agreements, retainers, and execution tracking within each matter.</span>
             </div>
             <div class="service-item">
-              <h3>Document Handling</h3>
+              <h2>Document Handling</h2>
               <span>HIPAA-capable storage and controlled document sharing for case materials.</span>
             </div>
             <div class="service-item">
-              <h3>Practice Operations</h3>
+              <h2>Practice Operations</h2>
               <span>Deadlines, deliverables, and scheduling visibility across active matters.</span>
             </div>
             <div class="service-item">
-              <h3>Invoicing</h3>
+              <h2>Invoicing</h2>
               <span>Time capture and invoice generation structured for litigation billing.</span>
             </div>
             <div class="service-item">
-              <h3>Payment Processing</h3>
+              <h2>Payment Processing</h2>
               <span>Retainer tracking, drawdowns, and payment recording.</span>
             </div>
           </div>
@@ -641,7 +668,7 @@
     </main>
 
     <footer>
-      <div class="footer-left">Toposphora LLC</div>
+      <div class="footer-left">© 2026 Toposphora LLC</div>
     </footer>
   </div>
 </body>

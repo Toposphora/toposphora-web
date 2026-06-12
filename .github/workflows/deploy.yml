@@ -25,7 +25,14 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Sync to S3
-        run: aws s3 sync . s3://${{ secrets.S3_BUCKET }} --delete --exclude ".git/*"
+        run: >
+          aws s3 sync . s3://${{ secrets.S3_BUCKET }} --delete
+          --exclude ".git/*"
+          --exclude ".github/*"
+          --exclude ".gitignore"
+          --exclude ".claude/*"
+          --exclude "src/*"
+          --exclude "CLAUDE.md"
 
       - name: Invalidate CloudFront cache
         run: |
