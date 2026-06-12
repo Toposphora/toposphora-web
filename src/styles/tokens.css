@@ -1,51 +1,37 @@
 /* =============================================================
-   Toposphora Design Tokens
+   Toposphora Design Tokens — toposphora-web (marketing site)
    src/styles/tokens.css
-   
-   All colors, type sizes, spacing, and component primitives
-   are defined here. Components derive every value from these
-   tokens — never hardcode hex, px, or rem values inline.
+
+   Canonical token source for the toposphora.com marketing page.
+   index.html inlines the subset it uses in its :root block —
+   keep the two in sync: any token change edits both places.
+   Components derive every value from these tokens — never
+   hardcode hex, px, or rem values inline.
+
+   Scope: this file governs the marketing site ONLY. The product
+   app (toposphora-ui) is a separate repo with its own design
+   system (teal/sand, Tailwind @theme) and its own skill — do not
+   add product-app tokens here.
    ============================================================= */
 
 /* ── COLOR ─────────────────────────────────────────────────── */
 
 :root {
   /* Brand anchors */
-  --color-navy:        #1A3A5C;   /* primary action, sidebar, nav */
+  --color-navy:        #1A3A5C;   /* primary actions, topbar logo */
   --color-navy-dark:   #0D1B2A;   /* ink, headings, high-contrast text */
   --color-navy-light:  #2A547E;   /* hover state on navy elements */
-  --color-amber:       #C4922A;   /* accent, sidebar active indicator, amber badge dot */
-  --color-amber-light: #D4A94A;   /* hover state on amber elements */
+  --color-amber:       #C4922A;   /* accent and badge-dot only — never a fill */
 
   /* Neutrals */
-  --color-bg:          #F5F7FA;   /* page background, sidebar content areas */
-  --color-surface:     #FFFFFF;   /* cards, tables, modals */
-  --color-border:      #E0E6ED;   /* all borders, dividers, table lines */
-  --color-mid:         #4A6078;   /* secondary text, nav labels, table headers */
-  --color-subtle:      #7A93AD;   /* tertiary text, placeholders, empty states */
-
-  /* Status — semantic only, never decorative */
-  --color-status-active:         #1A3A5C;   /* dot + text */
-  --color-status-active-bg:      #FFFFFF;   /* neutral chip bg */
-  --color-status-pending:        #C4922A;
-  --color-status-pending-bg:     #FFFFFF;
-  --color-status-synced:         #1E5C3A;
-  --color-status-synced-bg:      #FFFFFF;
-  --color-status-error:          #A03030;
-  --color-status-error-bg:       #FFFFFF;
-  --color-status-paid:           #1E5C3A;
-  --color-status-paid-bg:        #FFFFFF;
-  --color-status-closed:         #4A6078;
-  --color-status-closed-bg:      #FFFFFF;
-
-  /* HIPAA zone boundary */
-  --hipaa-zone-border:      #A03030;
-  --hipaa-zone-label-bg:    #FFF5F5;
-  --hipaa-zone-label-color: #A03030;
+  --color-bg:          #F5F7FA;   /* page background */
+  --color-surface:     #FFFFFF;   /* cards, topbar */
+  --color-border:      #E0E6ED;   /* all borders, dividers */
+  --color-mid:         #4A6078;   /* secondary text */
+  --color-subtle:      #7A93AD;   /* tertiary text */
 
   /* Interactive states */
   --color-focus-ring:  #2B7FD4;   /* keyboard focus outline */
-  --color-overlay:     rgba(13, 27, 42, 0.45); /* modal scrim */
 }
 
 
@@ -53,24 +39,25 @@
 
 :root {
   /* Families */
-  --font-sans: 'Sora', sans-serif;       /* all UI text */
-  --font-mono: 'IBM Plex Mono', monospace; /* numbers, codes, status labels, invoice IDs */
+  --font-sans: 'Sora', sans-serif;         /* all UI text */
+  --font-mono: 'IBM Plex Mono', monospace; /* uppercase labels, eyebrow text, numbers */
 
-  /* Scale — toposphora-web (marketing) */
+  /* Scale. The h1 is the one sanctioned departure:
+     clamp(var(--text-hero), 4vw, 3rem). */
   --text-hero:    2.25rem;  /* 36px — page hero headline */
   --text-h1:      1.6rem;   /* 25.6px — section headline */
   --text-h2:      1.2rem;   /* 19.2px — sub-section heading */
   --text-h3:      1rem;     /* 16px — card heading */
   --text-body:    0.875rem; /* 14px — body copy */
   --text-small:   0.8rem;   /* 12.8px — captions, footnotes */
-  --text-label:   0.68rem;  /* 10.9px — uppercase labels, table headers */
-  --text-mono:    0.8rem;   /* 12.8px — monetary values, hours, IDs */
-  --text-mono-sm: 0.7rem;   /* 11.2px — badge labels, status text */
+  --text-label:   0.68rem;  /* 10.9px — uppercase tracked labels */
 
-  /* Weights */
+  /* Weights. Sora 500 is not loaded (Google Fonts link ships
+     300/400/600/700) — use 600 for medium emphasis, or extend
+     the fonts URL if a new weight is genuinely needed. */
   --weight-light:    300;
   --weight-regular:  400;
-  --weight-medium:   600;   /* Sora has no 500 — use 600 */
+  --weight-medium:   600;
   --weight-bold:     700;
 
   /* Line heights */
@@ -105,39 +92,24 @@
   --space-20:  80px;
   --space-24:  96px;
 
-  /* Component-specific spacing */
-  --sidebar-width:        180px;
-  --sidebar-pad-x:        12px;
-  --sidebar-pad-y:        8px;
-  --topbar-height:        56px;
-  --topbar-pad-x:         24px;
-  --table-cell-pad-x:     8px;
-  --table-cell-pad-y:     5px;
-  --card-pad:             16px;
-  --form-field-gap:       12px;
-  --section-gap:          48px;   /* toposphora-web between sections */
-  --page-pad-x:           24px;   /* toposphora-ui main content */
-  --page-pad-y:           20px;
+  /* Page-level spacing */
+  --section-gap:  48px;   /* between page sections */
 }
 
 
 /* ── SHAPE ──────────────────────────────────────────────────── */
 
 :root {
-  --radius:     0px;    /* sharp — all buttons, inputs, cards, badges */
-  --radius-sm:  0px;
-  --radius-lg:  0px;
+  --radius: 0px;   /* sharp corners everywhere — buttons, cards, badges */
 }
 
 
 /* ── BORDERS ────────────────────────────────────────────────── */
 
 :root {
-  --border-width:   1px;
-  --border-color:   var(--color-border);
-  --border:         1px solid var(--color-border);
-  --border-navy:    1px solid var(--color-navy);
-  --border-amber:   1px solid var(--color-amber);
+  --border-width: 1px;
+  --border-color: var(--color-border);
+  --border:       1px solid var(--color-border);
 }
 
 
@@ -147,32 +119,29 @@
   /* Keep shadows minimal — sharp radius means no soft glow */
   --shadow-sm:  0 1px 3px rgba(13, 27, 42, 0.08);
   --shadow-md:  0 4px 12px rgba(13, 27, 42, 0.10);
-  --shadow-lg:  0 8px 24px rgba(13, 27, 42, 0.12);
 }
 
 
 /* ── TRANSITIONS ────────────────────────────────────────────── */
 
 :root {
-  --transition-fast:   150ms ease;   /* modals, drawers */
+  /* Motion is limited to one orchestrated page-load sequence,
+     fully wrapped in prefers-reduced-motion. */
+  --transition-fast:   150ms ease;
   --transition-normal: 200ms ease;
-  /* No transitions on tables, forms, or data rows */
 }
 
 
 /* ── BREAKPOINTS ────────────────────────────────────────────── */
 
 /*
-  Use these in media queries:
+  The page's actual breakpoints:
 
-  Mobile:   max-width: 639px
-  Tablet:   640px – 1023px
-  Desktop:  min-width: 1024px
-  Wide:     min-width: 1280px
+  max-width: 980px — hero stacks to a single column
+  max-width: 700px — topbar and service grid stack
 
-  Example:
-  @media (max-width: 639px) { ... }
-  @media (min-width: 1024px) { ... }
+  The 639 / 1024 / 1280 scale is aspirational — migrating the
+  page to it is a separate, explicit task.
 */
 
 
@@ -180,105 +149,36 @@
 
 /* Buttons */
 :root {
-  --btn-font-size:     0.75rem;
-  --btn-font-weight:   var(--weight-medium);
+  --btn-font-size:      0.75rem;
+  --btn-font-weight:    var(--weight-medium);
   --btn-letter-spacing: var(--tracking-wide);
-  --btn-pad-x:         16px;
-  --btn-pad-y:         7px;
-  --btn-radius:        var(--radius);
+  --btn-pad-x:          16px;
+  --btn-pad-y:          7px;
+  --btn-radius:         var(--radius);
 
   /* Primary: navy fill, white text */
-  --btn-primary-bg:    var(--color-navy);
-  --btn-primary-color: #FFFFFF;
+  --btn-primary-bg:       var(--color-navy);
+  --btn-primary-color:    #FFFFFF;
   --btn-primary-hover-bg: var(--color-navy-light);
 
-  /* Secondary: ghost — text only, no border */
+  /* Secondary: ghost — navy text, no border, underline
+     (text-decoration applied in component CSS) */
   --btn-secondary-bg:    transparent;
   --btn-secondary-color: var(--color-navy);
   --btn-secondary-border: none;
-  /* underline applied via text-decoration in component CSS */
 }
 
-/* Inputs */
+/* Topbar — non-sticky white bar: diamond logo + brand name left,
+   mono uppercase tagline right. No nav links and no CTA in the
+   topbar; CTAs live in the hero and closing contact blocks. */
 :root {
-  --input-height:      36px;
-  --input-pad-x:       10px;
-  --input-font-size:   var(--text-body);
-  --input-border:      var(--border);
-  --input-focus-border: 1px solid var(--color-navy);
-  --input-focus-ring:  0 0 0 2px rgba(43, 127, 212, 0.25);
-  --input-radius:      var(--radius);
-  --input-bg:          var(--color-surface);
-  --input-color:       var(--color-navy-dark);
-  --input-placeholder: var(--color-subtle);
-}
-
-/* Status badges (dot + text pattern) */
-:root {
-  --badge-font:        var(--font-mono);
-  --badge-font-size:   var(--text-mono-sm);
-  --badge-pad-x:       6px;
-  --badge-pad-y:       2px;
-  --badge-radius:      var(--radius);
-  --badge-bg:          var(--color-surface);
-  --badge-border:      var(--border);
-  --badge-color:       var(--color-navy-dark);
-  --badge-dot-size:    6px;
-  --badge-gap:         4px;   /* gap between dot and text */
-}
-
-/* Sidebar (toposphora-ui) */
-:root {
-  --sidebar-bg:           var(--color-navy);
-  --sidebar-color:        rgba(255, 255, 255, 0.55);
-  --sidebar-color-active: #FFFFFF;
-  --sidebar-active-bg:    rgba(255, 255, 255, 0.08);
-  --sidebar-active-indicator: var(--color-amber); /* left border */
-  --sidebar-divider:      rgba(255, 255, 255, 0.1);
-  --sidebar-logo-size:    var(--text-h3);
-  --sidebar-logo-weight:  var(--weight-bold);
-  --sidebar-nav-size:     0.72rem;
-  --sidebar-nav-weight:   var(--weight-regular);
-}
-
-/* Topbar (toposphora-web) */
-:root {
-  --topbar-bg:       var(--color-surface);
-  --topbar-border:   var(--border);
-  --topbar-logo-size: 0.95rem;
+  --topbar-height:      56px;
+  --topbar-pad-x:       24px;
+  --topbar-bg:          var(--color-surface);
+  --topbar-border:      var(--border);
+  --topbar-logo-size:   0.95rem;
   --topbar-logo-weight: var(--weight-bold);
-  --topbar-logo-color: var(--color-navy);
-  --topbar-link-size:  0.72rem;
-  --topbar-link-color: var(--color-mid);
-  --topbar-link-weight: var(--weight-medium);
-}
-
-/* Tables (toposphora-ui) */
-:root {
-  --table-header-bg:    var(--color-surface);
-  --table-header-color: var(--color-mid);
-  --table-header-size:  var(--text-label);
-  --table-header-weight: var(--weight-medium);
-  --table-header-tracking: var(--tracking-wider);
-  --table-row-bg:       var(--color-surface);
-  --table-row-alt-bg:   #FAFBFC;
-  --table-row-color:    var(--color-navy-dark);
-  --table-row-size:     0.72rem;
-  --table-border:       var(--border);
-}
-
-/* Auth0 loading skeleton */
-:root {
-  --skeleton-bg:        #E8EDF2;
-  --skeleton-shine:     #F0F4F8;
-  --skeleton-radius:    var(--radius);
-}
-
-/* Modal / drawer */
-:root {
-  --modal-bg:           var(--color-surface);
-  --modal-border:       var(--border);
-  --modal-shadow:       var(--shadow-lg);
-  --modal-transition:   var(--transition-fast);
-  --drawer-width:       360px;
+  --topbar-logo-color:  var(--color-navy);
+  --topbar-link-size:   0.72rem;
+  --topbar-link-color:  var(--color-mid);
 }
