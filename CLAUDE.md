@@ -22,7 +22,7 @@ Local copy lives at `C:\Users\danow\Dev\toposphora-web`.
 
 - Static HTML/CSS — no build system, no dependencies
 - Single file: `index.html`
-- Fonts loaded from Google Fonts (EB Garamond, Manrope)
+- Fonts loaded from Google Fonts (Sora, IBM Plex Mono)
 - No JavaScript frameworks
 
 ## Purpose
@@ -31,10 +31,14 @@ Public-facing marketing/landing page for Toposphora LLC. Describes the expert wi
 
 ## Design Tokens
 
-- Background: `#f7f3ed`
-- Primary teal: `#1a5f5e`, deep teal: `#123c3d`
-- Sand accent: `#a48659`
-- Body font: Manrope; heading font: EB Garamond
+- Canonical source: `src/styles/tokens.css`. The subset `index.html` uses is
+  inlined in its `:root` block — keep the two in sync.
+- Background: `#F5F7FA`; surfaces: `#FFFFFF`; borders: `#E0E6ED`
+- Primary navy: `#1A3A5C`, ink/navy-dark: `#0D1B2A`, hover navy-light: `#2A547E`
+- Amber accent: `#C4922A`
+- Fonts: Sora (all UI text; no 500 weight — use 600); IBM Plex Mono (uppercase
+  labels, eyebrow text)
+- Shape: sharp corners (`--radius: 0`), minimal shadows, flat background
 
 ## Hosting
 
