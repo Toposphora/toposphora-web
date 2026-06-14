@@ -111,6 +111,10 @@
       --space-12:  48px;
       --space-16:  64px;
       --space-20:  80px;
+      --space-24:  96px;
+
+      /* Page-level spacing */
+      --section-gap: 48px;
 
       /* Shape, borders, shadow, motion */
       --radius:     0px;
@@ -200,24 +204,43 @@
 
     .page {
       max-width: 1240px;
-      min-height: calc(100vh - var(--topbar-height));
       margin: 0 auto;
       padding: 0 var(--space-12) var(--space-8);
-      display: grid;
-      grid-template-rows: 1fr auto;
     }
 
-    main {
-      display: grid;
-      align-items: start;
-      padding: var(--space-12) 0 0;
+    /* Stacked sections — generous vertical rhythm, one idea per section. */
+    .section {
+      padding: var(--space-20) 0;
+      border-top: var(--border);
+      opacity: 0;
+      animation: fadeUp 0.85s ease forwards;
+    }
+
+    /* Continue the single page-load cascade across the stacked sections. */
+    .section--overview     { animation-delay: 0.48s; }
+    .section--capabilities { animation-delay: 0.56s; }
+    .section--closing      { animation-delay: 0.64s; }
+
+    .section-inner {
+      max-width: 720px;
+    }
+
+    .section-inner--wide {
+      max-width: 100%;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: var(--text-label);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-navy);
+      margin-bottom: var(--space-5);
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) 340px;
-      gap: 60px;
-      align-items: start;
+      padding: var(--space-16) 0 var(--space-20);
     }
 
     h1 {
@@ -250,34 +273,23 @@
       line-height: var(--leading-normal);
       color: var(--color-mid);
       margin-bottom: var(--space-6);
-      opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.24s;
     }
 
     .credibility {
       max-width: 720px;
-      margin-top: var(--space-4);
+      margin-top: var(--space-5);
       font-size: var(--text-small);
       line-height: var(--leading-normal);
       color: var(--color-mid);
       opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.32s;
-    }
-
-    .section-divider {
-      border: none;
-      border-top: var(--border);
-      margin: var(--space-6) 0 var(--space-5);
+      animation: fadeUp 0.85s ease forwards 0.40s;
     }
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(220px, 1fr));
-      gap: var(--space-3);
-      max-width: 780px;
-      margin-bottom: 0;
-      opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.40s;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-4);
+      max-width: 100%;
     }
 
     .service-item {
@@ -307,11 +319,18 @@
       align-items: center;
       flex-wrap: wrap;
       gap: var(--space-3) var(--space-4);
-      padding-top: var(--space-5);
-      border-top: var(--border);
       max-width: 720px;
+    }
+
+    /* Hero CTA row carries its own step in the page-load cascade. */
+    .hero .contact-block {
+      margin-top: var(--space-8);
       opacity: 0;
       animation: fadeUp 0.85s ease forwards 0.32s;
+    }
+
+    .closing .contact-block {
+      margin-top: var(--space-6);
     }
 
     .contact-label {
@@ -354,43 +373,12 @@
       color: var(--color-navy-light);
     }
 
-    .sidebar {
-      opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.48s;
-    }
-
-    .closing {
-      max-width: 720px;
-      padding: var(--space-20) 0 var(--space-16);
-      opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.56s;
-    }
-
     .closing-statement {
       font-size: var(--text-h1);
       font-weight: var(--weight-regular);
       line-height: var(--leading-snug);
       color: var(--color-navy-dark);
-      margin-bottom: var(--space-6);
       text-wrap: balance;
-    }
-
-    .dossier {
-      background: var(--color-surface);
-      border: var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      padding: var(--space-6);
-    }
-
-    .dossier-title {
-      font-family: var(--font-mono);
-      font-size: var(--text-label);
-      font-weight: var(--weight-medium);
-      letter-spacing: var(--tracking-wider);
-      text-transform: uppercase;
-      color: var(--color-navy);
-      margin-bottom: var(--space-4);
     }
 
     .dossier-copy {
@@ -406,6 +394,7 @@
       display: grid;
       gap: var(--space-3);
       margin-bottom: var(--space-5);
+      max-width: 560px;
     }
 
     .dossier-list li {
@@ -444,7 +433,7 @@
       padding-top: var(--space-6);
       border-top: var(--border);
       opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.64s;
+      animation: fadeUp 0.85s ease forwards 0.72s;
     }
 
     .footer-left {
@@ -478,12 +467,9 @@
       header,
       h1,
       .lede,
-      .description,
-      .contact-block,
+      .hero .contact-block,
       .credibility,
-      .service-grid,
-      .sidebar,
-      .closing,
+      .section,
       footer {
         opacity: 1;
         transform: none;
@@ -491,13 +477,8 @@
     }
 
     @media (max-width: 980px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: var(--space-8);
-      }
-
-      .sidebar {
-        max-width: 460px;
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -518,8 +499,12 @@
         padding: 0 var(--space-5) var(--space-6);
       }
 
-      main {
+      .hero {
         padding: var(--space-10) 0 var(--space-12);
+      }
+
+      .section {
+        padding: var(--space-12) 0;
       }
 
       .service-grid {
@@ -574,35 +559,56 @@
   <div class="page">
     <main>
       <section class="hero">
-        <div class="content">
-          <h1>
-            Administrative management of expert witness engagements.
-          </h1>
+        <h1>
+          Administrative management of expert witness engagements.
+        </h1>
 
-          <p class="lede">
-            Toposphora organizes intake, document handling, scheduling, and billing across expert witness matters.
+        <p class="lede">
+          Toposphora organizes intake, document handling, scheduling, and billing across expert witness matters.
+        </p>
+
+        <div class="contact-block">
+          <div class="contact-label">Get started</div>
+          <a class="contact-link" href="https://app.toposphora.com/start-trial">
+            Request Access
+          </a>
+          <a class="contact-link contact-link--outline" href="https://app.toposphora.com">
+            Sign In
+          </a>
+        </div>
+
+        <p class="credibility">
+          For physicians, engineers, economists, and other expert witnesses engaged in civil litigation.
+        </p>
+      </section>
+
+      <section class="section section--overview" aria-labelledby="overview-title">
+        <div class="section-inner">
+          <h2 id="overview-title" class="eyebrow">Built for expert witness work</h2>
+
+          <p class="dossier-copy">
+            Toposphora centralizes the administrative components of expert witness engagements.
           </p>
 
           <p class="description">
             Toposphora structures engagement setup, document handling, scheduling visibility, and billing workflows so experts stay focused on testimony and attorneys remain informed.
           </p>
 
-          <div class="contact-block">
-            <div class="contact-label">Get started</div>
-            <a class="contact-link" href="https://app.toposphora.com/start-trial">
-              Request Access
-            </a>
-            <a class="contact-link contact-link--outline" href="https://app.toposphora.com">
-              Sign In
-            </a>
-          </div>
+          <ul class="dossier-list">
+            <li>Case intake and matter setup</li>
+            <li>Document storage and controlled sharing</li>
+            <li>Scheduling visibility across participants</li>
+            <li>Billing and payment tracking</li>
+          </ul>
 
-          <p class="credibility">
-            For physicians, engineers, economists, and other expert witnesses engaged in civil litigation.
+          <p class="dossier-foot">
+            All activity is organized by matter and remains accessible throughout the engagement lifecycle.
           </p>
+        </div>
+      </section>
 
-          <hr class="section-divider" />
-
+      <section class="section section--capabilities" aria-label="Capabilities">
+        <div class="section-inner section-inner--wide">
           <div class="service-grid">
             <div class="service-item">
               <h2>Case Intake</h2>
@@ -630,39 +636,21 @@
             </div>
           </div>
         </div>
-
-        <aside class="sidebar" aria-label="Built for expert witness work">
-          <div class="dossier">
-            <div class="dossier-title">Built for expert witness work</div>
-            <div class="dossier-copy">
-              Toposphora centralizes the administrative components of expert witness engagements.
-            </div>
-
-            <ul class="dossier-list">
-              <li>Case intake and matter setup</li>
-              <li>Document storage and controlled sharing</li>
-              <li>Scheduling visibility across participants</li>
-              <li>Billing and payment tracking</li>
-            </ul>
-
-            <div class="dossier-foot">
-              All activity is organized by matter and remains accessible throughout the engagement lifecycle.
-            </div>
-          </div>
-        </aside>
       </section>
 
-      <section class="closing" aria-label="Summary">
-        <p class="closing-statement">
-          Toposphora provides a single system for managing the administrative side of expert witness engagements from initial contact through final payment.
-        </p>
-        <div class="contact-block">
-          <a class="contact-link" href="https://app.toposphora.com/start-trial">
-            Request Access
-          </a>
-          <a class="contact-link contact-link--outline" href="https://app.toposphora.com">
-            Sign In
-          </a>
+      <section class="section section--closing" aria-label="Summary">
+        <div class="section-inner">
+          <p class="closing-statement">
+            Toposphora provides a single system for managing the administrative side of expert witness engagements from initial contact through final payment.
+          </p>
+          <div class="contact-block">
+            <a class="contact-link" href="https://app.toposphora.com/start-trial">
+              Request Access
+            </a>
+            <a class="contact-link contact-link--outline" href="https://app.toposphora.com">
+              Sign In
+            </a>
+          </div>
         </div>
       </section>
     </main>
