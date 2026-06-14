@@ -31,6 +31,10 @@ Public-facing marketing/landing page for Toposphora LLC. Describes the expert wi
 
 ## Design Tokens
 
+- **Full design rules** (palette rationale, fonts, copy voice, domain vocabulary,
+  layout patterns, accessibility) live in
+  `.claude/skills/toposphora-frontend-design/SKILL.md` (tracked in git). Read it
+  before any visual or copy change. The tokens below are the quick reference.
 - Canonical source: `src/styles/tokens.css`. The subset `index.html` uses is
   inlined in its `:root` block — keep the two in sync.
 - Background: `#F5F7FA`; surfaces: `#FFFFFF`; borders: `#E0E6ED`
