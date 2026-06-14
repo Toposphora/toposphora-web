@@ -191,15 +191,19 @@
       color: var(--topbar-logo-color);
     }
 
-    .header-note {
-      max-width: 360px;
+    .topbar-signin {
       font-family: var(--font-mono);
       font-size: var(--topbar-link-size);
-      line-height: var(--leading-snug);
+      font-weight: var(--weight-medium);
       letter-spacing: var(--tracking-wider);
       text-transform: uppercase;
       color: var(--topbar-link-color);
-      text-align: right;
+      text-decoration: none;
+      transition: color var(--transition-normal);
+    }
+
+    .topbar-signin:hover {
+      color: var(--color-navy);
     }
 
     .page {
@@ -217,9 +221,8 @@
     }
 
     /* Continue the single page-load cascade across the stacked sections. */
-    .section--overview     { animation-delay: 0.48s; }
-    .section--capabilities { animation-delay: 0.56s; }
-    .section--closing      { animation-delay: 0.64s; }
+    .section--capabilities { animation-delay: 0.48s; }
+    .section--closing      { animation-delay: 0.56s; }
 
     .section-inner {
       max-width: 720px;
@@ -273,6 +276,8 @@
       line-height: var(--leading-normal);
       color: var(--color-mid);
       margin-bottom: var(--space-6);
+      opacity: 0;
+      animation: fadeUp 0.85s ease forwards 0.30s;
     }
 
     .credibility {
@@ -299,7 +304,7 @@
       background: var(--color-surface);
     }
 
-    .service-item h2 {
+    .service-item h3 {
       display: block;
       font-size: var(--text-h3);
       font-weight: var(--weight-medium);
@@ -361,68 +366,12 @@
       background: var(--btn-primary-hover-bg);
     }
 
-    .contact-link--outline {
-      background: transparent;
-      color: var(--color-navy);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .contact-link--outline:hover {
-      background: transparent;
-      color: var(--color-navy-light);
-    }
-
     .closing-statement {
       font-size: var(--text-h1);
       font-weight: var(--weight-regular);
       line-height: var(--leading-snug);
       color: var(--color-navy-dark);
       text-wrap: balance;
-    }
-
-    .dossier-copy {
-      font-size: var(--text-h2);
-      font-weight: var(--weight-medium);
-      line-height: var(--leading-snug);
-      color: var(--color-navy-dark);
-      margin-bottom: var(--space-5);
-    }
-
-    .dossier-list {
-      list-style: none;
-      display: grid;
-      gap: var(--space-3);
-      margin-bottom: var(--space-5);
-      max-width: 560px;
-    }
-
-    .dossier-list li {
-      padding-left: var(--space-4);
-      position: relative;
-      font-size: var(--text-small);
-      line-height: var(--leading-normal);
-      color: var(--color-mid);
-    }
-
-    .dossier-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.78em;
-      width: 6px;
-      height: 6px;
-      background: var(--color-amber);
-      border-radius: 50%;
-      transform: translateY(-50%);
-    }
-
-    .dossier-foot {
-      padding-top: var(--space-4);
-      border-top: var(--border);
-      font-size: var(--text-small);
-      line-height: var(--leading-normal);
-      color: var(--color-mid);
     }
 
     footer {
@@ -433,7 +382,7 @@
       padding-top: var(--space-6);
       border-top: var(--border);
       opacity: 0;
-      animation: fadeUp 0.85s ease forwards 0.72s;
+      animation: fadeUp 0.85s ease forwards 0.64s;
     }
 
     .footer-left {
@@ -441,6 +390,22 @@
       font-size: var(--text-label);
       letter-spacing: var(--tracking-wider);
       text-transform: uppercase;
+      color: var(--color-mid);
+    }
+
+    /* Internal admin entry — deliberately understated, kept apart from
+       the customer CTAs. */
+    .footer-admin {
+      font-family: var(--font-mono);
+      font-size: var(--text-label);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      color: var(--color-subtle);
+      text-decoration: none;
+      transition: color var(--transition-normal);
+    }
+
+    .footer-admin:hover {
       color: var(--color-mid);
     }
 
@@ -467,6 +432,7 @@
       header,
       h1,
       .lede,
+      .description,
       .hero .contact-block,
       .credibility,
       .section,
@@ -484,15 +450,7 @@
 
     @media (max-width: 700px) {
       .topbar-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-2);
-        padding-top: var(--space-3);
-        padding-bottom: var(--space-3);
-      }
-
-      .header-note {
-        text-align: left;
+        gap: var(--space-4);
       }
 
       .page {
@@ -550,9 +508,7 @@
         </div>
       </div>
 
-      <div class="header-note">
-        Administrative management of expert witness engagements
-      </div>
+      <a class="topbar-signin" href="https://app.toposphora.com">Sign In</a>
     </div>
   </header>
 
@@ -564,16 +520,17 @@
         </h1>
 
         <p class="lede">
-          Toposphora organizes intake, document handling, scheduling, and billing across expert witness matters.
+          Toposphora is a single system for the administrative side of expert witness work — intake, engagement agreements, document handling, scheduling, and billing — organized by matter from initial contact through final payment.
+        </p>
+
+        <p class="description">
+          Experts stay focused on testimony; attorneys stay informed.
         </p>
 
         <div class="contact-block">
           <div class="contact-label">Get started</div>
           <a class="contact-link" href="https://app.toposphora.com/start-trial">
             Request Access
-          </a>
-          <a class="contact-link contact-link--outline" href="https://app.toposphora.com">
-            Sign In
           </a>
         </div>
 
@@ -582,73 +539,46 @@
         </p>
       </section>
 
-      <section class="section section--overview" aria-labelledby="overview-title">
-        <div class="section-inner">
-          <h2 id="overview-title" class="eyebrow">Built for expert witness work</h2>
-
-          <p class="dossier-copy">
-            Toposphora centralizes the administrative components of expert witness engagements.
-          </p>
-
-          <p class="description">
-            Toposphora structures engagement setup, document handling, scheduling visibility, and billing workflows so experts stay focused on testimony and attorneys remain informed.
-          </p>
-
-          <ul class="dossier-list">
-            <li>Case intake and matter setup</li>
-            <li>Document storage and controlled sharing</li>
-            <li>Scheduling visibility across participants</li>
-            <li>Billing and payment tracking</li>
-          </ul>
-
-          <p class="dossier-foot">
-            All activity is organized by matter and remains accessible throughout the engagement lifecycle.
-          </p>
-        </div>
-      </section>
-
-      <section class="section section--capabilities" aria-label="Capabilities">
+      <section class="section section--capabilities" aria-labelledby="capabilities-title">
         <div class="section-inner section-inner--wide">
+          <h2 id="capabilities-title" class="eyebrow">What Toposphora manages</h2>
           <div class="service-grid">
             <div class="service-item">
-              <h2>Case Intake</h2>
-              <span>Structured engagement setup, conflict review, and matter creation.</span>
+              <h3>Case Intake</h3>
+              <span>Engagement setup, conflict review, and matter creation for each new request.</span>
             </div>
             <div class="service-item">
-              <h2>Engagement Agreements</h2>
-              <span>Service agreements, retainers, and execution tracking within each matter.</span>
+              <h3>Engagement Agreements</h3>
+              <span>Service agreements and retainers drafted, sent, and tracked through execution within the matter.</span>
             </div>
             <div class="service-item">
-              <h2>Document Handling</h2>
-              <span>HIPAA-capable storage and controlled document sharing for case materials.</span>
+              <h3>Document Handling</h3>
+              <span>HIPAA-capable storage and controlled sharing of case materials with the retaining firm.</span>
             </div>
             <div class="service-item">
-              <h2>Practice Operations</h2>
+              <h3>Practice Operations</h3>
               <span>Deadlines, deliverables, and scheduling visibility across active matters.</span>
             </div>
             <div class="service-item">
-              <h2>Invoicing</h2>
-              <span>Time capture and invoice generation structured for litigation billing.</span>
+              <h3>Invoicing</h3>
+              <span>Time tracking and invoice generation structured for litigation billing.</span>
             </div>
             <div class="service-item">
-              <h2>Payment Processing</h2>
-              <span>Retainer tracking, drawdowns, and payment recording.</span>
+              <h3>Payment Processing</h3>
+              <span>Retainer tracking, drawdowns, and payments recorded against each invoice.</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section section--closing" aria-label="Summary">
+      <section class="section section--closing" aria-label="Get started">
         <div class="section-inner">
           <p class="closing-statement">
-            Toposphora provides a single system for managing the administrative side of expert witness engagements from initial contact through final payment.
+            Set up your expert witness practice on Toposphora.
           </p>
           <div class="contact-block">
             <a class="contact-link" href="https://app.toposphora.com/start-trial">
               Request Access
-            </a>
-            <a class="contact-link contact-link--outline" href="https://app.toposphora.com">
-              Sign In
             </a>
           </div>
         </div>
@@ -657,6 +587,7 @@
 
     <footer>
       <div class="footer-left">© 2026 Toposphora LLC</div>
+      <a class="footer-admin" href="https://api.toposphora.com/admin/ui">Admin sign-in</a>
     </footer>
   </div>
 </body>
