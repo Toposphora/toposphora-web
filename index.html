@@ -228,10 +228,6 @@
       max-width: 720px;
     }
 
-    .section-inner--wide {
-      max-width: 100%;
-    }
-
     .eyebrow {
       font-family: var(--font-mono);
       font-size: var(--text-label);
@@ -292,7 +288,7 @@
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: var(--space-4);
       max-width: 100%;
     }
@@ -442,12 +438,6 @@
       }
     }
 
-    @media (max-width: 980px) {
-      .service-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
     @media (max-width: 700px) {
       .topbar-inner {
         gap: var(--space-4);
@@ -540,32 +530,24 @@
       </section>
 
       <section class="section section--capabilities" aria-labelledby="capabilities-title">
-        <div class="section-inner section-inner--wide">
+        <div class="section-inner">
           <h2 id="capabilities-title" class="eyebrow">What Toposphora manages</h2>
           <div class="service-grid">
             <div class="service-item">
-              <h3>Case Intake</h3>
-              <span>Engagement setup, conflict review, and matter creation for each new request.</span>
+              <h3>Case Onboarding</h3>
+              <span>Integrated e-signatures and retainer invoicing that automatically creates a new matter the moment both signature and payment are complete.</span>
             </div>
             <div class="service-item">
-              <h3>Engagement Agreements</h3>
-              <span>Service agreements and retainers drafted, sent, and tracked through execution within the matter.</span>
-            </div>
-            <div class="service-item">
-              <h3>Document Handling</h3>
-              <span>HIPAA-capable storage and controlled sharing of case materials with the retaining firm.</span>
+              <h3>Secure Case Files</h3>
+              <span>HIPAA-compliant storage and controlled file sharing with retaining firms.</span>
             </div>
             <div class="service-item">
               <h3>Practice Operations</h3>
-              <span>Deadlines, deliverables, and scheduling visibility across active matters.</span>
+              <span>Complete visibility over case schedules, critical deadlines, and milestones.</span>
             </div>
             <div class="service-item">
-              <h3>Invoicing</h3>
-              <span>Time tracking and invoice generation structured for litigation billing.</span>
-            </div>
-            <div class="service-item">
-              <h3>Payment Processing</h3>
-              <span>Retainer tracking, drawdowns, and payments recorded against each invoice.</span>
+              <h3>Invoicing &amp; Billing</h3>
+              <span>Litigation-specific time tracking, clean expense logging, and streamlined payment processing.</span>
             </div>
           </div>
         </div>
@@ -574,7 +556,7 @@
       <section class="section section--closing" aria-label="Get started">
         <div class="section-inner">
           <p class="closing-statement">
-            The testimony is yours. The paperwork is ours.
+            Less administration. More expertise.
           </p>
           <div class="contact-block">
             <a class="contact-link" href="https://app.toposphora.com/start-trial">
