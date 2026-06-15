@@ -9,6 +9,27 @@ description: >
   (toposphora-ui) is a separate repo with its OWN design skill and a
   different palette — do not apply this skill there.
 
+governance:
+  status: >
+    This skill is the default playbook, not a contract. Follow it by
+    default. Non-negotiables are never deviated from ad hoc; everything
+    else is a strong default you may deviate from ONLY after a back-and-
+    forth with Dan — then encode the agreed change here in the same PR.
+    No silent one-off deviations buried in a component.
+  non_negotiable:
+    - Stack architecture (static HTML, no build/framework/npm, no API calls)
+    - Security & privacy (no secrets in source; no PHI/case/client data in copy)
+    - Legal & brand framing (not an intermediary; no pricing copy without an explicit ask; CTAs only to app.toposphora.com)
+    - Accessibility floor (WCAG AA, keyboard, prefers-reduced-motion; color never the sole status differentiator)
+    - Domain vocabulary (Expert / Case / Retaining Counsel / Invoice / Time Tracking)
+  default_deviate_after_discussion:
+    - Palette values, radius / corner geometry, type scale, font families/weights, font delivery
+    - Layout patterns (section rhythm, grid counts, topbar pattern, motion sequence)
+    - Aesthetic anti-patterns (amber-not-a-fill, 0px radius, no gradients/glassmorphism)
+  note: >
+    Palette is an active area Dan intends to revisit — treat the current
+    navy/amber values as the working default, not settled canon.
+
 stack:
   framework: >
     NONE. Single static file: index.html. Plain HTML + CSS. This is a
@@ -124,6 +145,10 @@ anti_patterns:
     - Lorem ipsum or placeholder proof points
     - Marketing claims about PHI/case data handling beyond what the platform does
     - Pricing copy anywhere on the site without an explicit ask (PR #15 added a pricing card; PR #16 reverted it)
+  note: >
+    The visual entries are defaults (deviate only after agreeing with Dan);
+    the code, ux, security, and legal entries are non-negotiable. "Color as
+    sole status differentiator" is an accessibility invariant, not a default.
 
 decision_rules:
   - Correctness of domain semantics beats everything
@@ -155,6 +180,21 @@ This skill governs the **marketing site only**: a single static
 The authenticated product app (`toposphora-ui`, app.toposphora.com) is a
 separate React/Tailwind repo with its own skill and a teal/sand palette
 — never share code, assets, or styling decisions between the two repos.
+
+## Status & how to deviate
+
+This skill is the **default playbook, not a contract.** Follow it by default.
+
+- **Non-negotiables** — stack architecture, security/privacy, legal & brand
+  framing, the accessibility floor, and domain vocabulary — are never deviated
+  from ad hoc. See `governance.non_negotiable` in the frontmatter.
+- **Everything else is a strong default** — palette, corner geometry, type
+  scale, fonts, layout patterns, and the aesthetic anti-patterns. To deviate:
+  raise it with Dan, agree in a back-and-forth, then encode the new decision in
+  this skill in the same PR. No silent one-off deviations buried in a component.
+- The current **navy/amber palette** is the working default, not settled canon
+  — Dan intends to revisit color, so treat color proposals as in-scope to
+  raise, not off-limits.
 
 ## Page conventions
 
@@ -192,7 +232,12 @@ separate React/Tailwind repo with its own skill and a teal/sand palette
 
 ## Maintaining this skill
 
-This skill must agree with the repo CLAUDE.md — if they conflict,
-CLAUDE.md wins and this skill is stale: update it. When the design
-system changes (tokens, fonts, layout patterns), update
-`src/styles/tokens.css`, `index.html`, and this skill together.
+This skill is a living record of agreed design decisions, not a frozen spec.
+
+- It must agree with the repo CLAUDE.md. If they conflict, **CLAUDE.md wins**
+  and this skill is stale — update it.
+- When Dan approves a deviation from a default, **capture the new decision
+  here** in the same piece of work, so the next session inherits it instead of
+  re-litigating it.
+- When the design system changes (tokens, fonts, layout patterns), update
+  `src/styles/tokens.css`, `index.html`, and this skill together.
